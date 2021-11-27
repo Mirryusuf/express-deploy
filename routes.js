@@ -6,7 +6,7 @@ const path = require('path');
 
 express.get('/', (req, res) => {
     const { page, total, id } = req.query;
-    res.send({
+    res.json({
         status: "succesfully",
         message: "welcome to home page",
         page,
@@ -30,14 +30,14 @@ express.get('/', (req, res) => {
 //     })
 // })
 express.get('/product', (req, res) => {
-    res.send({
+    res.json({
         status: "succesfully",
         message: "status page"
     })
 })
 
 express.get('/product/:id', (req, res) => {
-    res.send({
+    res.json({
         id: req.params.id
     })
 })
@@ -48,7 +48,7 @@ express.post('/product', upload.single('image'), (req, res) => {
         if(image){
             const target = path.join(__dirname, 'uploads', image.originalname);
             fs.renameSync(image.path, target)
-            res.send({
+            res.json({
                 name,
                 stock, 
                 price,
@@ -58,7 +58,7 @@ express.post('/product', upload.single('image'), (req, res) => {
     })
 
 express.get('/category', (req, res) => {
-    res.send({
+    res.json({
         status: "succesfully",
         message: "category page"
     })
@@ -66,7 +66,7 @@ express.get('/category', (req, res) => {
 
 express.get('/:category/:tag', (req, res) => {
     const { category, tag } = req.params;
-    res.send({
+    res.json({
         category,
         tag
     })
