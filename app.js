@@ -3,6 +3,7 @@ const app = express();
 const router = require('./routes');
 const logger = require('./middlewares/logger');
 const { json } = require('express');
+const port = Process.env.PORT || 3000 ;
 
 app.use(logger);
 app.use(express.urlencoded({extended: true}));
