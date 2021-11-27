@@ -20,5 +20,5 @@ app.use((req, res) => {
 
 
 
-app.listen(3000, () => console.log('server running at http://127.0.0.1:3000'));
+app.listen(process.env.PORT || 5000, () => console.log('server running at http://127.0.0.1:3000'));
 
